@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentaireController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Http\Controllers\ArticleController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+                                 /* CRUD ARTICLE*/
 Route::get('/article', [ArticleController::class, 'ListeArticle']);
 
 Route::get('/ajouter', [ArticleController::class, 'AjouterArticle']);
@@ -29,3 +30,6 @@ Route::post('/modifier/traitement', [ArticleController::class, 'ModifierArticleT
 Route::get('/supprimer-article/{id}', [ArticleController::class, 'supprimer_article']);
 
 Route::get('/detail-article/{id}', [ArticleController::class, 'DetailArticle']);
+                   
+                                 /*CRUD COMMENTAIRE*/
+Route::get('/commentaire', [CommentaireController::class, 'ListeCommentaire']);
