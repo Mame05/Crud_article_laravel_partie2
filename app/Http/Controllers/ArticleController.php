@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -63,4 +64,10 @@ class ArticleController extends Controller
         $article->delete();
         return redirect('/article')->with('status', "L'article a bien été supprimer avec succés.");
        }
+
+       public function DetailArticle($id){
+        $article = DB::table('articles')->where('id', $id)->get();
+        $article = Article::findOrFail($id);
+        return view('article/detail',['article'=>$article]);
+    } 
 }
