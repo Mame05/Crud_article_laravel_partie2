@@ -19,3 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/article', [ArticleController::class, 'ListeArticle']);
+Route::get('/ajouter', [ArticleController::class, 'AjouterArticle']);
+Route::post('/ajouter/traitement', [ArticleController::class, 'AjouterArticleTraitement']);
