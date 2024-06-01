@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CommentaireController extends Controller
 {
-    /*public function ListeCommentaire(){
-        $articles = Commentaire::all();
+   /* public function ListeCommentaire(){
+        $commentaires = Commentaire::all();
         return view('article/detail', compact('commentaires'));
     }*/
 
@@ -26,11 +27,10 @@ class CommentaireController extends Controller
         "]);
     
         $commentaire= new Commentaire();
-        $commentaire->article_id = $request->input('article_id');
+        $commentaire->article_id = $request->article_id;
         $commentaire->nom_complet_auteur = $request->nom_complet_auteur;
         $commentaire->contenu = $request->contenu;
         $commentaire->save();
-    
-        return redirect('/detail-article/{id}')->with('status', "Le commentaire a bien été ajouté avec succés.");
+        return redirect()->back();
        }
 }

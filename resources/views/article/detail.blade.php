@@ -23,21 +23,46 @@
                 </p>
                 <a href="/article" class="btn btn-outline-success btn-sm">Revenir à la liste des articles</a>
               </div>
-              <div >
-                <h1>LISTE DES COMMENTAIRES</h1>
-                <form action="/ajouter/commentaire-traitement" method="POST" class="form-group">
-                  @csrf
-                  <div class="form-group">
-                    <label for="nom_complet_auteur">Présentez-vous</label>
-                    <input type="text" class="form-control" id="nom_complet_auteur" name="nom_complet_auteur">
+              <hr>
+              <div class="d-flex card-body justify-content-between gap-3">
+                <div>
+                  <div class="row form-group">
+                    <h5>COMMENTAIRES</h5>
+                    <ol class="list-group list-group-numbered">
+                      @foreach($article->commentaires as $commentaire)
+                        <li class="list-group-item d-flex justify-content-between align-items-start">
+                          <div class="ms-1 me-auto card-title">
+                            <div class="fw-bold">{{ $commentaire->nom_complet_auteur }}</div>
+                            <p class="card-text">{{ $commentaire->contenu }}</p>
+                          </div>                      
+                        </li>
+                      @endforeach
+                    </ol>
                   </div>
-                  <div class="form-group">
-                    <label for="contenu">Votre commentaire</label>
-                    <textarea class="form-control" id="contenu" name="contenu"></textarea>
-                  </div>
-                <br>
-                  <button type="submit" class="btn btn-primary btn sm">Envoyer</button>
-                </form>
+                </div>  
+                <div>
+                  <h5>Vous pouvez ajouter votre commentaire par ici:</h5>
+                  <br>
+                  <form action="/ajouter/commentaire-traitement" method="POST" class="form-group">
+                    @csrf
+                    <div class="form-group">
+                      <input type="hidden" name="article_id" value="{{$article->id}}">
+                      <label for="nom_complet_auteur">Présentez-vous!!!</label>
+                      <input type="text" class="form-control" id="nom_complet_auteur" name="nom_complet_auteur">
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="contenu">Que dites-vous???</label>
+                      <textarea class="form-control" id="contenu" name="contenu"></textarea>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="d-flex justify-content-end">
+                      <button type="submit" class="btn btn-primary btn sm">Envoyer</button>
+                    </div>
+                  </form>
+                </div>
+                
               </div>
             </div>
         </div>
