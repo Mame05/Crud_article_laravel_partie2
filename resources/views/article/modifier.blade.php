@@ -24,7 +24,7 @@
                     @endforeach
                 </ul>
 
-                <form action="/modifier/traitement" method="POST" class="form-group">
+                <form action="/modifier/article-traitement" method="POST" class="form-group">
                 @csrf
                 <input type="text" name="id" style="display: none;" value="{{$articles->id}}">
                     <div class="form-group">

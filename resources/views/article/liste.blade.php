@@ -12,21 +12,18 @@
             <div class="col s12">
                 <h1>LISTE D'ARTICLES</h1>
                 <hr>
-                <a href="/ajouter" class="btn btn-primary">Ajouter un article</a>
+                <a href="article/ajouter" class="btn btn-primary">Ajouter un article</a>
                 <hr>
                 @if (session('status'))
                 <div class="alert alert-success">
                     {{session('status')}} 
                 </div>
                 @endif
-                @php
-                    $ide = 1;
-                @endphp
                 <div class="row">
                 @foreach($articles as $article)
-                <div class="col-sm-3">
-                    <div class="card" style="width: 20rem;height:400px">
-                    <img src="{{ $article->image }}" class="card-img-top" alt="..." width="20rem" height="200px"> <!--permet losqu'on met l'url de l'image on le verra-->
+                  <div class="col-sm-3">
+                    <div class="card" style="width: 20rem;height:350px">
+                    <img src="{{ $article->image }}" class="card-img-top" alt="..." width="20rem" height="250px"> <!--permet losqu'on met l'url de l'image on le verra-->
                     <div class="card-body">
                       <h5 class="card-title">{{ $article->nom }}</h5>
                       <p class="d-inline-flex gap-3">  <!--C'est pour mettre des espacements entre les button-->
@@ -36,21 +33,12 @@
                       </p>
                     </div>
                     </div>
-                </div>
-                  @php
-                  $ide += 1;
-                  @endphp
+                  </div>
                   @endforeach
                 </div>
     </div>
 </div>
-</div>
-                
-                       
-                    
-                
-                       
-                    
+</div>              
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>

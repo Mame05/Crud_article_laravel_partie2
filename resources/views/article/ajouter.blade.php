@@ -24,7 +24,7 @@
                     @endforeach
                 </ul>
 
-                <form action="/ajouter/traitement" method="POST" class="form-group">
+                <form action="/ajouter/article-traitement" method="POST" class="form-group">
 
                     @csrf
                     <div class="form-group">
