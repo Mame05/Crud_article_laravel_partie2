@@ -27,14 +27,16 @@ Route::post('/ajouter/article-traitement', [ArticleController::class, 'AjouterAr
 Route::get('/modifier-article/{id}', [ArticleController::class, 'ModifierArticle']);
 Route::post('/modifier/article-traitement', [ArticleController::class, 'ModifierArticleTraitement']);
 
-Route::get('/supprimer-article/{id}', [ArticleController::class, 'supprimer_article']);
+Route::get('/supprimer-article/{id}', [ArticleController::class, 'SupprimerArticle']);
 
 Route::get('/detail-article/{id}', [ArticleController::class, 'DetailArticle']);
                    
                                  /*CRUD COMMENTAIRE*/
-/*Route::get('/commentaire', [CommentaireController::class, 'ListeCommentaire']);*/
 
-/*Route::get('commentaire/ajouter', [CommentaireController::class, 'AjouterCommentaire']);*/
 Route::post('/ajouter/commentaire-traitement', [CommentaireController::class, 'AjouterCommentaireTraitement']);
-
 /*On met le formulaire d'ajout de commentaire dans la vue détail c'est la raisou pour laquelle on a pas définie une route pour ajouter un commentaire mais si c'était le cas contraire on allait crée une route qui nous ménera vers cet formulaire*/
+
+Route::get('/modifier-commentaire/{id}', [CommentaireController::class, 'ModifierCommentaire']);
+Route::post('/modifier/commentaire-traitement', [CommentaireController::class, 'ModifierCommentaireTraitement']);
+
+/*Route::get('/supprimer-commentaire/{id}', [CommentaireController::class, 'SupprimerCommentaire']);*/

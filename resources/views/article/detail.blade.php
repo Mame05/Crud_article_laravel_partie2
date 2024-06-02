@@ -34,14 +34,17 @@
                           <div class="ms-1 me-auto card-title">
                             <div class="fw-bold">{{ $commentaire->nom_complet_auteur }}</div>
                             <p class="card-text">{{ $commentaire->contenu }}</p>
-                          </div>                      
+                          </div> 
+                          <p class="d-inline-flex gap-3">  <!--C'est pour mettre des espacements entre les button-->
+                            <a href="/modifier-commentaire/{{ $commentaire->id }}"  class="btn btn-outline-primary btn-sm">Modifier</a>
+                            <a href="/supprimer-commentaire/{{ $commentaire->id }}"  class="btn btn-outline-danger btn-sm">Supprimer</a>
+                            </p>                     
                         </li>
                       @endforeach
                     </ol>
                   </div>
                 </div>  
                 <div>
-                  <h5>Vous pouvez ajouter votre commentaire par ici:</h5>
                   <br>
                   <form action="/ajouter/commentaire-traitement" method="POST" class="form-group">
                     @csrf
@@ -62,7 +65,6 @@
                     </div>
                   </form>
                 </div>
-                
               </div>
             </div>
         </div>

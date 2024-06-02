@@ -59,13 +59,14 @@ class ArticleController extends Controller
         return redirect('article')->with('status', "L'article a bien été modifié avec succés.");
        }
 
-       public function supprimer_article($id){
+       public function SupprimerArticle($id){
         $article = Article::find($id);
         $article->delete();
         return redirect('/article')->with('status', "L'article a bien été supprimer avec succés.");
        }
 
        public function DetailArticle($id){
+        /*dd($request->all());*/
         $article = DB::table('articles')->where('id', $id)->get();
         $article = Article::findOrFail($id);
         return view('article/detail',['article'=>$article]);
