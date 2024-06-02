@@ -39,4 +39,4 @@ Route::post('/ajouter/commentaire-traitement', [CommentaireController::class, 'A
 Route::get('/modifier-commentaire/{id}', [CommentaireController::class, 'ModifierCommentaire']);
 Route::post('/modifier/commentaire-traitement', [CommentaireController::class, 'ModifierCommentaireTraitement']);
 
-/*Route::get('/supprimer-commentaire/{id}', [CommentaireController::class, 'SupprimerCommentaire']);*/
+Route::get('/supprimer-commentaire/{id}', [CommentaireController::class, 'SupprimerCommentaire']);

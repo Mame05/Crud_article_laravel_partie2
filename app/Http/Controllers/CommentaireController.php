@@ -59,4 +59,10 @@ class CommentaireController extends Controller
         return view('article/detail', compact('article'));
         /*return redirect()->back(); */     
        }
+
+       public function SupprimerCommentaire($id){
+        $commentaire = Commentaire::find($id);
+        $commentaire->delete();
+        return redirect()->back();
+       }
 }
